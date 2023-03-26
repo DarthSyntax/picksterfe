@@ -1,0 +1,14 @@
+.image-container {
+  display: grid;
+  grid-template-columns: 220px 220px;
+  grid-template-rows: auto;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.image {
+  height: 200px;
+  width: 200px;
+  margin: 10px;
+  border-radius: 25%;
+}

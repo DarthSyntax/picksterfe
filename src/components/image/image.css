@@ -1,0 +1,46 @@
+.user {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  width: 175px;
+  margin: 0 auto;
+  /* position: absolute;
+  left: 33%;
+  top: 25%; */
+}
+
+img {
+  align-items: center;
+  height: 500px;
+  width: auto;
+  margin-top: 20px;
+  position: relative;
+  top: 55%;
+}
+
+.profilepic {
+  /* position: absolute;
+  left: 38%;
+  top: 14%;*/
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+.caption {
+  display: block;
+}
+
+.username {
+  /* margin-left: 10px;
+  height: 20px;
+  width: auto;
+  position: absolute;
+  left: 41%;
+  top: 14%; */
+}
+
+.image-and-comments {
+  /* position: absolute;
+  top: 35%;
+  left: 33%; */
+}

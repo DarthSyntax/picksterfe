@@ -1,24 +1,65 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Homepage from './pages/homepage/homepage';
+import Explore from './pages/explore/explore';
+import HomepageFeed from './pages/homepage-feed/homepage-feed';
+import ImagePage from './pages/image-page/image-page';
+import React, { useState } from 'react';
+import StateContext from './context';
+import SignUpPage from './pages/signup-page/signup-page';
+import ProfilePage from './pages/profile-page/profile-page';
+
+//add state context for user and authentication token here
+//maybe image as well to tell what image is being looked at
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(null);
+  const [image, setImage] = useState(null);
+  const [imageId, setImageId] = useState(null);
+  const [otherUser, setOtherUser] = useState(null);
+  const [comments, setComments] = useState(null);
+  const [token, setToken] = useState(null);
+  const [headers, setHeaders] = useState('');
+  const [caption, setCaption] = useState(null);
+
+  const stateObj = {
+    currentUser,
+    setCurrentUser,
+    image,
+    setImage,
+    imageId,
+    setImageId,
+    otherUser,
+    setOtherUser,
+    comments,
+    setComments,
+    token,
+    setToken,
+    headers,
+    setHeaders,
+    caption,
+    setCaption,
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StateContext.Provider value={stateObj}>
+      <Router>
+        <Routes>
+          <Route
+            exact
+            path='/'
+            element={token ? <HomepageFeed /> : <Homepage />}
+          ></Route>
+          <Route path='/explore' element={<Explore />}></Route>
+          <Route path='/image/:imageId' element={<ImagePage />}></Route>
+          <Route
+            path='/signup'
+            element={token ? <HomepageFeed /> : <SignUpPage />}
+          ></Route>
+          <Route path='/users/:username' element={<ProfilePage />}></Route>
+        </Routes>
+      </Router>
+    </StateContext.Provider>
   );
 }
 

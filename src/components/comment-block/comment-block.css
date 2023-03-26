@@ -1,0 +1,29 @@
+.comment-span {
+  /* position: absolute;
+  bottom: -7%;
+  left: 10%; */
+}
+
+.comment {
+  margin-top: 10px;
+}
+
+.comment-container {
+  /* position: absolute;
+  bottom: -42%;
+  left: 15%; */
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-section {
+  /* position: absolute;
+   left: 40%;
+  top: 23%;
+  position: absolute;
+  */
+
+  bottom: -37%;
+  left: 10%;
+  margin-top: 15px;
+}
