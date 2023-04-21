@@ -10,25 +10,25 @@ const CommentBlock = () => {
 
     let interval = Math.floor(seconds / 31536000);
     if (interval > 1) {
-      return `${interval}y `;
+      return `${interval}y ago `;
     }
     interval = Math.floor(seconds / 2592000);
     if (interval > 1) {
-      return `${interval}m `;
+      return `${interval}mo ago `;
     }
     interval = Math.floor(seconds / 86400);
     if (interval > 1) {
-      return `${interval}d `;
+      return `${interval}d ago `;
     }
     interval = Math.floor(seconds / 3600);
     if (interval > 1) {
-      return `${interval}h `;
+      return `${interval}h ago `;
     }
     interval = Math.floor(seconds / 60);
     if (interval > 1) {
-      return `${interval}m `;
+      return `${interval}m ago `;
     }
-    return `${Math.floor(seconds)}s `;
+    return `${Math.floor(seconds)}s ago `;
   };
 
   const globalState = useContext(StateContext);
@@ -37,11 +37,6 @@ const CommentBlock = () => {
     `The user from the comment block is ${globalState.currentUser.username}`
   );
   return (
-    //Comment.user will be the user object from the DB, since protected gives access to req.user, I'll include that as part of the
-    //comment object
-
-    // Must pass in context state as prop, cant call useContext inside child component or it messes up
-
     <>
       <CommentForm globalState={globalState} />
       <div className='comment-section'>
@@ -51,7 +46,7 @@ const CommentBlock = () => {
           {globalState.comments?.map((comment, index) => (
             <div className='comment' user={comment.user} key={index}>
               <span className='comment-date'>
-                {timeSince(comment?.timeCreated)}
+                {timeSince(new Date(comment?.timeCreated))}
               </span>
               <span className='comment-username'>{comment.user} posted: </span>
               <span className='comment-text'>{comment.text}</span>
