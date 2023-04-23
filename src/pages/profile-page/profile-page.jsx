@@ -56,9 +56,7 @@ const ProfilePage = () => {
   }, [loaded, headers]);
 
   const handleClick = async function (e) {
-    //When an image is clicked I want to go to the image component
-    //and retrieve the info about the image from the database and display it there
-    //console.log(e.target.src);
+    e.preventDefault();
     setImage(e.target.src);
     setImageId(e.target.id);
     console.log('The id of the picture in the profile is ', e.target.src);
@@ -88,7 +86,6 @@ const ProfilePage = () => {
 
       const destinationUserJson = await destinationUser.json();
 
-      //console.log(destinationUserJson);
       setOtherUser(destinationUserJson.user);
     } catch (err) {
       console.log(err);

@@ -5,14 +5,11 @@ import StateContext from '../../context';
 import CommentBlock from '../comment-block/comment-block';
 import FollowButton from '../follow-button/follow-button';
 
-const Image = ({id, picUser, imageInfo}) => {
-  const { image, otherUser, comments, currentUser, caption, setOtherUser, setComments, headers, setImage } =
-    useContext(StateContext);
+const Image = ({ id, picUser, imageInfo }) => {
+  const { currentUser, caption } = useContext(StateContext);
 
   const [isFollowing, setIsFollowing] = useState(false);
   const [btnColor, setBtnColor] = useState('blue');
-  // const [imageInfo, setImageInfo] = useState(null);
-  // const [picUser, setPicUser] = useState(null);
 
   const navigate = useNavigate();
 
@@ -23,34 +20,7 @@ const Image = ({id, picUser, imageInfo}) => {
     navigate(`/users/${h5Ref.current.innerText}`);
   };
 
-  //comments works as of 12/23 12:42 am
-  // console.log('The comments on the picture are', comments);
-  // console.log(otherUser);
-
   useEffect(() => {
-    // const getImage = async () => {
-    //   const res = await fetch(`http://localhost:9000/api/v1/pics/${id}`, {
-    //     method: 'GET',
-    //     headers: headers,
-    //   })
-
-    //   const imageJson = await res.json();
-
-    //   const resUser = await fetch(`http://localhost:9000/api/v1/users/${imageJson.data.user}`, {
-    //     method: 'GET',
-    //     headers: headers,
-    //   })
-
-    //   const userJson = await resUser.json();
-
-    //   setImageInfo(imageJson.data);
-    //   setPicUser(userJson.data.user);
-    //   console.log(imageJson, userJson);
-      
-    // }
-
-    // if(!picUser || !imageInfo) getImage();
-    
     if (
       picUser?.followers.some(
         (follower) => follower._id === currentUser._id

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import './follow-button.css';
 import StateContext from '../../context';
 import Button from '@mui/material/Button';
