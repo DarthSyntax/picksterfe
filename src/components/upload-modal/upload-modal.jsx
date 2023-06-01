@@ -8,7 +8,7 @@ import StateContext from '../../context';
 import './upload-modal.css';
 
 const UploadModal = () => {
-  const { currentUser, headers } = useContext(StateContext);
+  const { headers } = useContext(StateContext);
   const [open, setOpen] = useState(false);
   const [imageURL, setImageURL] = useState(null);
   const [caption, setCaption] = useState(null);

@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import './image-page.css';
 import Image from '../../components/image/image';
-import Header from '../../components/header/header';
-import CommentBlock from '../../components/comment-block/comment-block';
 import { useParams } from 'react-router-dom';
 import StateContext from '../../context';
 

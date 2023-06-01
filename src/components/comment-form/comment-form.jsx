@@ -3,9 +3,6 @@ import React, { useState } from 'react';
 import './comment-form.css';
 
 const CommentForm = ({ globalState }) => {
-  // Must pass in context state as prop cant call useContext inside child component or it messes up
-
-  //const globalState = useContext(StateContext);
   const [commentText, setCommentText] = useState('');
 
   const handleChange = function (e) {
@@ -49,15 +46,9 @@ const CommentForm = ({ globalState }) => {
       console.log(err);
     }
 
-    //globalState.comments.unshift(newCommentJson.comment.text);
     globalState.setComments([newCommentJson.comment, ...globalState.comments]);
-    // console.log(
-    //   `Updated comments are ${globalState.comments[0].text}, ${globalState.comments[1].text}`
-    // );
-    //setCommentText('');
-    
-// Clear the text from the component
-setCommentText('');
+
+    setCommentText('');
   };
 
   return (

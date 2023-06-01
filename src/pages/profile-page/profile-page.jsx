@@ -1,7 +1,6 @@
 import { React, useEffect, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './profile-page.css';
-import Header from '../../components/header/header';
 import StateContext from '../../context';
 import FollowButton from '../../components/follow-button/follow-button';
 

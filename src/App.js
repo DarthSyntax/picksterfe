@@ -13,9 +13,6 @@ import UploadModal from './components/upload-modal/upload-modal';
 import Navbar from './components/navbar/navbar';
 import LogoutButton from './components/logout-button/logout-button.component';
 
-//add state context for user and authentication token here
-//maybe image as well to tell what image is being looked at
-
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [image, setImage] = useState(null);
