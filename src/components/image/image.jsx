@@ -36,21 +36,23 @@ const Image = ({ id, picUser, imageInfo }) => {
 
   return (
     <>
-      <div className='user'>
+      <div className='user-container'>
+        <div className='user'>
+          <img
+            className='profilepic'
+            src={picUser?.profilePic}
+            alt={picUser?.profilePic}
+          />
+          <h5 className='username' ref={h5Ref} onClick={handleProfileClick}>
+            {picUser?.username}
+          </h5>
+        </div>
         <FollowButton
           isFollowing={isFollowing}
           setIsFollowing={setIsFollowing}
           btnColor={btnColor}
           setBtnColor={setBtnColor}
         />
-        <img
-          className='profilepic'
-          src={picUser?.profilePic}
-          alt={picUser?.profilePic}
-        />
-        <h5 className='username' ref={h5Ref} onClick={handleProfileClick}>
-          {picUser?.username}
-        </h5>
       </div>
       <div className='image-and-comments'>
         <img src={imageInfo?.image} alt={imageInfo?.image} id={id} />

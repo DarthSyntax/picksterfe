@@ -1,3 +1,4 @@
 .follow-button {
-  height: 45px;
+  max-height: 45px;
+  max-width: 100px;
 }

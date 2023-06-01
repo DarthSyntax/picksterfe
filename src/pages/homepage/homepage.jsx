@@ -5,10 +5,9 @@ import Login from '../../components/login/login';
 
 const Homepage = () => {
   return (
-    <>
-      <Header />
+    <div>
       <Login />
-    </>
+    </div>
   );
 };
 

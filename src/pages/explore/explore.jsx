@@ -10,7 +10,6 @@ import ImageContainer from '../../components/image-container/image-container';
 const Explore = () => {
   return (
     <>
-      <Header />
       <ImageContainer />
     </>
   );

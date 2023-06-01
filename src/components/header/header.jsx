@@ -5,12 +5,10 @@ import Navbar from '../navbar/navbar';
 import UploadModal from '../upload-modal/upload-modal';
 
 const Header = () => {
-  const { token } = useContext(StateContext);
+  const {} = useContext(StateContext);
   return (
-    <div>
-      <h1 className='header'>Pickster</h1>
-      <Navbar />
-      {token ? <UploadModal /> : ''}
+    <div className='header'>
+      <h1>Pickster</h1>
     </div>
   );
 };

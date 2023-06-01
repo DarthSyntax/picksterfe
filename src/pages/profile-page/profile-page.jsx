@@ -96,7 +96,6 @@ const ProfilePage = () => {
 
   return (
     <div>
-      <Header />
       <div className='profile-info'>
         <img
           className='profile-photo'

@@ -8,6 +8,10 @@ import React, { useState } from 'react';
 import StateContext from './context';
 import SignUpPage from './pages/signup-page/signup-page';
 import ProfilePage from './pages/profile-page/profile-page';
+import Header from './components/header/header';
+import UploadModal from './components/upload-modal/upload-modal';
+import Navbar from './components/navbar/navbar';
+import LogoutButton from './components/logout-button/logout-button.component';
 
 //add state context for user and authentication token here
 //maybe image as well to tell what image is being looked at
@@ -43,22 +47,33 @@ function App() {
 
   return (
     <StateContext.Provider value={stateObj}>
-      <Router>
-        <Routes>
-          <Route
-            exact
-            path='/'
-            element={token ? <HomepageFeed /> : <Homepage />}
-          ></Route>
-          <Route path='/explore' element={<Explore />}></Route>
-          <Route path='/image/:imageId' element={<ImagePage />}></Route>
-          <Route
-            path='/signup'
-            element={token ? <HomepageFeed /> : <SignUpPage />}
-          ></Route>
-          <Route path='/users/:username' element={<ProfilePage />}></Route>
-        </Routes>
-      </Router>
+      <div className='grid-container'>
+        <Router>
+          <div className='upload'>{token && <UploadModal />}</div>
+          <div className='header'>
+            <Header />
+          </div>
+          <div className='nav'>{token && <Navbar />}</div>
+          <div className='content'>
+            <Routes>
+              <Route
+                exact
+                path='/'
+                element={token ? <HomepageFeed /> : <Homepage />}
+              ></Route>
+              <Route path='/explore' element={<Explore />}></Route>
+              <Route path='/image/:imageId' element={<ImagePage />}></Route>
+              <Route
+                path='/signup'
+                element={token ? <HomepageFeed /> : <SignUpPage />}
+              ></Route>
+              <Route path='/users/:username' element={<ProfilePage />}></Route>
+            </Routes>
+          </div>
+          <div className='logout'>{token && <LogoutButton />}</div>
+          <div className='ads'>{token ? 'Ads List' : ''}</div>
+        </Router>
+      </div>
     </StateContext.Provider>
   );
 }

@@ -40,8 +40,12 @@ const UploadModal = () => {
   };
 
   return (
-    <>
-      <Button className='upload-button' onClick={handleOpen}>
+    <div>
+      <Button
+        className='upload-button'
+        onClick={handleOpen}
+        variant='contained'
+      >
         Upload
       </Button>
       <Modal open={open} onClose={handleClose}>
@@ -80,7 +84,7 @@ const UploadModal = () => {
           </form>
         </Box>
       </Modal>
-    </>
+    </div>
   );
 };
 

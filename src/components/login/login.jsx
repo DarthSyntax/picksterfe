@@ -49,31 +49,40 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <TextField
-        id='email'
-        label='Email'
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
-      />
+    <div>
+      <form id='login-form' onSubmit={handleSubmit}>
+        <TextField
+          id='email'
+          label='Email'
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+        />
 
-      <TextField
-        id='password'
-        label='Password'
-        value={password}
-        onChange={(event) => setPassword(event.target.value)}
-      />
-      <Button className='login-button' variant='contained' type='submit'>
-        Log In
-      </Button>
-      <Button
-        className='login-to-signup'
-        variant='outlined'
-        onClick={sendToSignup}
-      >
-        Sign Up
-      </Button>
-    </form>
+        <TextField
+          id='password'
+          label='Password'
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
+      </form>
+      <div className='buttons'>
+        <Button
+          className='login-button'
+          variant='contained'
+          type='submit'
+          form='login-form'
+        >
+          Log In
+        </Button>
+        <Button
+          className='login-to-signup'
+          variant='outlined'
+          onClick={sendToSignup}
+        >
+          Sign Up
+        </Button>
+      </div>
+    </div>
   );
 };
 

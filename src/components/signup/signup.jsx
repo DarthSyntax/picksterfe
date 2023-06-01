@@ -47,36 +47,38 @@ const Signup = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <TextField
-        id='username'
-        label='Username'
-        value={username}
-        onChange={(event) => setUsername(event.target.value)}
-      />
-      <TextField
-        id='email'
-        label='Email'
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
-      />
+    <div className='content'>
+      <form onSubmit={handleSubmit}>
+        <TextField
+          id='username'
+          label='Username'
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
+        />
+        <TextField
+          id='email'
+          label='Email'
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+        />
 
-      <TextField
-        id='password'
-        label='Password'
-        value={password}
-        onChange={(event) => setPassword(event.target.value)}
-      />
-      <TextField
-        id='confirmpassword'
-        label='Confirm Password'
-        value={passwordConfirm}
-        onChange={(event) => setPasswordConfirm(event.target.value)}
-      />
-      <Button className='signup-button' variant='contained' type='submit'>
-        Create Account!
-      </Button>
-    </form>
+        <TextField
+          id='password'
+          label='Password'
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
+        <TextField
+          id='confirmpassword'
+          label='Confirm Password'
+          value={passwordConfirm}
+          onChange={(event) => setPasswordConfirm(event.target.value)}
+        />
+        <Button className='signup-button' variant='contained' type='submit'>
+          Create Account!
+        </Button>
+      </form>
+    </div>
   );
 };
 

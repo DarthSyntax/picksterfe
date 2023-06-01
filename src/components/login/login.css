@@ -8,3 +8,8 @@ form {
 .login-button {
   margin-top: 40px;
 }
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}

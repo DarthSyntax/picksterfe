@@ -1,5 +1,6 @@
 .header {
   color: blue;
   text-align: center;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
 }
