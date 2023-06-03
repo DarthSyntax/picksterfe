@@ -12,6 +12,7 @@ import Header from './components/header/header';
 import UploadModal from './components/upload-modal/upload-modal';
 import Navbar from './components/navbar/navbar';
 import LogoutButton from './components/logout-button/logout-button.component';
+import ErrorPage from './pages/errorpage/errorpage';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -59,12 +60,18 @@ function App() {
                 element={token ? <HomepageFeed /> : <Homepage />}
               ></Route>
               <Route path='/explore' element={<Explore />}></Route>
-              <Route path='/image/:imageId' element={<ImagePage />}></Route>
+              <Route
+                path='/image/:imageId'
+                element={token ? <ImagePage /> : <ErrorPage />}
+              ></Route>
               <Route
                 path='/signup'
                 element={token ? <HomepageFeed /> : <SignUpPage />}
               ></Route>
-              <Route path='/users/:username' element={<ProfilePage />}></Route>
+              <Route
+                path='/users/:username'
+                element={token ? <ProfilePage /> : <ErrorPage />}
+              ></Route>
             </Routes>
           </div>
           <div className='logout'>{token && <LogoutButton />}</div>
