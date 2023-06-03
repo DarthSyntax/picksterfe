@@ -32,7 +32,7 @@ const Image = ({ id, picUser, imageInfo }) => {
       setIsFollowing(false);
       setBtnColor('contained');
     }
-  }, [isFollowing, currentUser, picUser]);
+  }, [isFollowing, currentUser, picUser, btnColor]);
 
   return (
     <>

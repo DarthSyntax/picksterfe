@@ -5,7 +5,6 @@ import CommentForm from '../comment-form/comment-form.jsx';
 
 const CommentBlock = () => {
   const timeSince = function (date) {
-    console.log(date);
     const seconds = Math.floor((new Date() - date) / 1000);
 
     let interval = Math.floor(seconds / 31536000);
@@ -32,10 +31,6 @@ const CommentBlock = () => {
   };
 
   const globalState = useContext(StateContext);
-  console.log(`The comments from comment block are ${globalState.comments}`);
-  console.log(
-    `The user from the comment block is ${globalState.currentUser.username}`
-  );
   return (
     <>
       <CommentForm globalState={globalState} />

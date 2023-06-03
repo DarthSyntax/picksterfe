@@ -12,8 +12,6 @@ const ImagePage = () => {
     useContext(StateContext);
 
   useEffect(() => {
-    console.log(`the id of the image is ${id}`);
-
     const getImage = async () => {
       console.log('Start fetching data');
       const res = await fetch(`http://localhost:9000/api/v1/pics/${id}`, {
@@ -22,7 +20,6 @@ const ImagePage = () => {
       }).catch((error) => console.log(error));
 
       const imageJson = await res.json();
-      console.log('Image data fetched', imageJson);
 
       const resUser = await fetch(
         `http://localhost:9000/api/v1/users/${imageJson.data.user}`,
@@ -33,16 +30,14 @@ const ImagePage = () => {
       ).catch((error) => console.log(error));
 
       const userJson = await resUser.json();
-      console.log('User data fetched', userJson);
 
-      console.log('Made it passed the fetches! Wooooo');
       setImageInfo(imageJson.data);
       setImage(imageJson.data.image);
       setPicUser(userJson.user);
       setImageId(id);
       setComments(imageJson.data.comments);
 
-      console.log(imageJson, userJson);
+      console.log('End fetching data');
     };
 
     if (!picUser || !imageInfo) getImage();

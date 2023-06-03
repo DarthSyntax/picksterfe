@@ -34,7 +34,6 @@ const Login = () => {
         });
       }
       if (resJson && !currentUser) setCurrentUser(resJson.user);
-      console.log(res.status, resJson);
       if (res.status === 200) {
         console.log('Success');
       }

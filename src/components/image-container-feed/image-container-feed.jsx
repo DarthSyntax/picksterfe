@@ -19,7 +19,6 @@ const ImageContainerFeed = () => {
         results = await fetch('http://localhost:9000/api/v1/pics');
         resJson = await results.json();
         setImages(resJson);
-        console.log(resJson);
       } catch (err) {
         console.log(err);
       }
@@ -52,7 +51,6 @@ const ImageContainerFeed = () => {
 
       const destinationUserJson = await destinationUser.json();
 
-      //console.log(destinationUserJson);
       setOtherUser(destinationUserJson.user);
     } catch (err) {
       console.log(err);

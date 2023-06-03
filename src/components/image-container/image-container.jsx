@@ -26,7 +26,6 @@ const ImageContainer = () => {
         results = await fetch('http://localhost:9000/api/v1/pics');
         resJson = await results.json();
         setImages(resJson);
-        console.log(resJson);
       } catch (err) {
         console.log(err);
       }
@@ -39,10 +38,8 @@ const ImageContainer = () => {
   const handleClick = async function (e) {
     //When an image is clicked I want to go to the image component
     //and retrieve the info about the image from the database and display it there
-    //console.log(e.target.src);
     setImage(e.target.src);
     setImageId(e.target.id);
-    //console.log(e.target.id);
     try {
       const destination = await fetch(
         `http://localhost:9000/api/v1/pics/${e.target.id}`,
