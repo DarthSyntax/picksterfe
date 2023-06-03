@@ -13,6 +13,7 @@ const ProfilePage = () => {
     setCaption,
     setComments,
     currentUser,
+    otherUser,
   } = useContext(StateContext);
   const [userProfile, setUserProfile] = useState(null);
   const [loaded, setLoaded] = useState(false);
@@ -102,13 +103,17 @@ const ProfilePage = () => {
           alt={userProfile?.profilePic}
         />
         <h4>{userProfile?.username}</h4>
-        <FollowButton
-          isFollowing={isFollowing}
-          btnColor={btnColor}
-          setIsFollowing={setIsFollowing}
-          setBtnColor={setBtnColor}
-          className='follow-user'
-        />
+        {currentUser._id === otherUser._id ? (
+          ''
+        ) : (
+          <FollowButton
+            isFollowing={isFollowing}
+            btnColor={btnColor}
+            setIsFollowing={setIsFollowing}
+            setBtnColor={setBtnColor}
+            className='follow-user'
+          />
+        )}
       </div>
       {/* <span>{userProfile.bio}</span> */}
 

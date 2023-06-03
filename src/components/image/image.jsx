@@ -47,12 +47,16 @@ const Image = ({ id, picUser, imageInfo }) => {
             {picUser?.username}
           </h5>
         </div>
-        <FollowButton
-          isFollowing={isFollowing}
-          setIsFollowing={setIsFollowing}
-          btnColor={btnColor}
-          setBtnColor={setBtnColor}
-        />
+        {currentUser._id === picUser?._id ? (
+          ''
+        ) : (
+          <FollowButton
+            isFollowing={isFollowing}
+            setIsFollowing={setIsFollowing}
+            btnColor={btnColor}
+            setBtnColor={setBtnColor}
+          />
+        )}
       </div>
       <div className='image-and-comments'>
         <img src={imageInfo?.image} alt={imageInfo?.image} id={id} />
